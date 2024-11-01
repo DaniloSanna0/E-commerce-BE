@@ -11,9 +11,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    private User user;
 
     @GetMapping("/{username}")
     public User getUserByUsername(@PathVariable String username) {
+        System.out.println("Ricevuto utente: " + user.getUsername() + ", " + user.getEmail() + ", " + user.getPassword());
         return userService.findUserByUsername(username);
     }
 
