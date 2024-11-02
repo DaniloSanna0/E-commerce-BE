@@ -1,8 +1,10 @@
 package com.example.ecommerce.models;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -13,11 +15,11 @@ public class Product {
 
     private String description;
 
-    private double price;
+    private BigDecimal price;
 
     private boolean available;
 
-    public Product(int id, String name, String description, double price, boolean available) {
+    public Product(int id, String name, String description, BigDecimal price, boolean available) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -26,7 +28,6 @@ public class Product {
     }
 
     public Product() {
-
     }
 
     public int getId() {
@@ -53,11 +54,11 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
