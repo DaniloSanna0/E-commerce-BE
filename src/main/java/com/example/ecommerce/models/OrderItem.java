@@ -2,8 +2,12 @@ package com.example.ecommerce.models;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
+@Table(name = "order_items")
 public class OrderItem {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +23,9 @@ public class OrderItem {
 
     private int quantity;
 
-    private double price;
+    private BigDecimal price;
 
-    public OrderItem(int id, Product product, Order order, int quantity, double price) {
+    public OrderItem(int id, Product product, Order order, int quantity, BigDecimal  price) {
         this.id = id;
         this.product = product;
         this.order = order;
@@ -65,11 +69,11 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public BigDecimal  getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal  price) {
         this.price = price;
     }
 }
